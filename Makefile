@@ -4,11 +4,14 @@ NAME = so_long
 I_DIR = include
 L_FT = libft
 
-SRC = so_long.c		\
+SRC = main.c		\
+	  parsing/parsing1.c	\
+	  parsing/parsing2.c	\
+	  parsing/parsing3.c	\
 
 OBJ = $(SRC:%.c=%.o)
 
-all: $(NAME)
+all: so_long.h $(NAME)
 
 $(NAME): $(L_FT)/libft.a $(OBJ)
 		$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -I$(I_DIR) -L$(L_FT) -lft
