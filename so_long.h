@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 17:59:20 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/01/16 15:26:48 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/01/18 12:37:08 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include "Libft/libft.h"
 
 char	**make_map(int fd, int *count);
+int		start_parsing(char **argv);
+int		on_error(char *msg, int code);
 int		check_file(char **argv, int fd);
 int		check_side_wall(char **map);
 int		check_front_wall(char **map);

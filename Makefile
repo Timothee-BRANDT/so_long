@@ -16,11 +16,11 @@ all: so_long.h $(NAME)
 $(NAME): $(L_FT)/libft.a $(OBJ)
 		$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -I$(I_DIR) -L$(L_FT) -lft
 
-$(L_FT)/libft.a:
+$(L_FT)/libft.a:	
 	make -C $(L_FT) 
 
 %.o: %.c
-	$(CC) -g -o $@ -c $< -I$(I_DIR)
+	$(CC) -g -o $@ -c $< -I$(I_DIR)mlx
 
 clean:
 	make clean -C $(L_FT)
