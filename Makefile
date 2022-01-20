@@ -8,13 +8,14 @@ SRC = main.c		\
 	  parsing/parsing1.c	\
 	  parsing/parsing2.c	\
 	  parsing/parsing3.c	\
+	  mlx_sprite.c			\
 
 OBJ = $(SRC:%.c=%.o)
 
 all: so_long.h $(NAME)
 
 $(NAME): $(L_FT)/libft.a $(OBJ)
-		$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -I$(I_DIR) -L$(L_FT) -lft
+		$(CC) $(CFLAGS) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(OBJ) -I$(I_DIR) -L$(L_FT) -lft
 
 $(L_FT)/libft.a:	
 	make -C $(L_FT) 

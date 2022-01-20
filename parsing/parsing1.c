@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 15:16:40 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/01/18 12:13:08 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/01/20 16:22:25 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	check_file(char **argv, int fd)
 int	check_side_wall(char **map)
 {
 	int	i;
-	int	j;
 
 	i = 0;
 	while (map[i])

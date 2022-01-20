@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 15:20:00 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/01/18 12:13:27 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/01/20 17:52:21 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int	is_empty_map(int *count, char **map)
 {
 	int	i;
 	int	j;
-	int	k;
 
 	i = count_zero(map);
 	j = *count;

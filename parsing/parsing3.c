@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 15:22:50 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/01/18 12:35:50 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/01/20 18:54:30 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,11 @@ int	on_error(char *msg, int code)
 	return (code);
 }
 
-int	start_parsing(char **argv)
+int	start_parsing(char **argv, t_data *data)
 {
 	int	fd;
 	int	count;
-	char **map;
 
-	map = NULL;
 	count = 0;
 	fd = open(argv[1], O_DIRECTORY);
 	if (fd > 0)
@@ -33,11 +31,11 @@ int	start_parsing(char **argv)
 	{
 		fd = open(argv[1], O_RDONLY);
 		check_file(argv, fd);
-		map = make_map(fd, &count);
-		is_empty_map(&count, map);
-		if (check_map(argv, map, fd, &count) == 1)
+		data->map = make_map(fd, &count);
+		is_empty_map(&count, data->map);
+		if (check_map(argv, data->map, fd, &count) == 1)
 			return (1);
-		check_map2(map);
+		check_map2(data->map);
 	}
 	return (0);
 }
