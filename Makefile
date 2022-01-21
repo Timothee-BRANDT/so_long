@@ -4,11 +4,12 @@ NAME = so_long
 I_DIR = include
 L_FT = libft
 
-SRC = main.c		\
+SRC = main.c				\
 	  parsing/parsing1.c	\
 	  parsing/parsing2.c	\
 	  parsing/parsing3.c	\
-	  mlx_sprite.c			\
+	  mlx_print_map.c		\
+	  map_mouvements.c		\
 
 OBJ = $(SRC:%.c=%.o)
 

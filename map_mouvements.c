@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   map_mouvements.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 17:59:11 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/01/21 17:56:11 by tbrandt          ###   ########.fr       */
+/*   Created: 2022/01/20 23:17:50 by tbrandt           #+#    #+#             */
+/*   Updated: 2022/01/21 18:25:36 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char *argv[])
+/*int	close(int keycode, t_vars *vars)
 {
-	t_data data;
-	if (argc == 2)
-	{
-		if (start_parsing(argv, &data) == 0)
-		{
-			get_map_size(&data);
-			print_map(&data);
-		}
-	}
-	else
-		printf("Error\n");
-	//system("leaks so_long");
+	mlx_destroy_window(vars->mlx, vars->win);
+	return (0);
+}*/
+
+void	start_event(t_data *data)
+{
+	mlx_loop(data->mlx);
 }

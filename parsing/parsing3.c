@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 15:22:50 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/01/20 18:54:30 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/01/21 17:36:05 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ int	start_parsing(char **argv, t_data *data)
 		is_empty_map(&count, data->map);
 		if (check_map(argv, data->map, fd, &count) == 1)
 			return (1);
-		check_map2(data->map);
+		if (check_map2(data->map) == 1)
+			return (1);
 	}
 	return (0);
 }
