@@ -69,23 +69,26 @@ int	is_empty_map(int *count, char **map)
 	return (0);
 }
 
-void	check_inside(char **map, int *collectible, int *exit, int *player)
+void	check_inside(char **map, t_data *data)
 {
 	int	i;
 	int	j;
 
 	i = 0;
+	data->collectible = 0;
+	data->exit = 0;
+	data->player = 0;
 	while (map[i])
 	{
 		j = 0;
 		while (map[i][j])
 		{
 			if (map[i][j] == 'C')
-				(*collectible)++;
+				data->collectible++;
 			if (map[i][j] == 'E')
-				(*exit)++;
+				data->exit++;
 			if (map[i][j] == 'P')
-				(*player)++;
+				data->player++;
 			j++;
 		}
 		i++;

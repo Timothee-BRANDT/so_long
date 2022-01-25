@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 15:22:50 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/01/24 14:02:33 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/01/25 23:52:26 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ int	start_parsing(char **argv, t_data *data)
 		is_empty_map(&count, data->map);
 		if (check_map(argv, data->map, fd, &count) == 1)
 			return (1);
-		if (check_map2(data->map) == 1)
+		if (check_map2(data->map, data) == 1)
 			return (1);
 	}
 	return (0);
 }
 
 int	check_map(char **argv, char **map, int fd, int *count)
-{	
+{
 	if (check_file(argv, fd) == 1)
 		return (on_error("Error\nBad file extension.\n", 1));
 	if (check_file(argv, fd) == 2)
@@ -54,34 +54,27 @@ int	check_map(char **argv, char **map, int fd, int *count)
 	return (0);
 }
 
-int	check_map2(char **map)
+int	check_map2(char **map, t_data *data)
 {
-	int	collectible;
-	int	exit;
-	int	player;
-
-	collectible = 0;
-	exit = 0;
-	player = 0;
-	check_inside(map, &collectible, &exit, &player);
-	if (!collectible)
+	check_inside(map, data);
+	if (!data->collectible)
 		return (on_error("Error\nI need collectibles.\n", 1));
-	if (!exit)
+	if (!data->exit)
 		return (on_error("Error\nI need an exit door.\n", 1));
-	if (!player || player == 2)
+	if (!data->player || data->player == 2)
 		return (on_error("Error\nI need one, and only one player.\n", 1));
 	if (check_content(map))
-		return(on_error("Error\nMy map only accept 0, 1, P, C and E.\n", 1));
+		return (on_error("Error\nMy map only accept 0, 1, P, C and E.\n", 1));
 	return (0);
 }
 
-void	free_split(char ** map)
+void	free_split(char **map)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while(map[i])
+	while (map[i])
 	{
 		free(map[i]);
 		i++;

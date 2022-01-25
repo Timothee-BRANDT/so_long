@@ -11,6 +11,7 @@ SRC = main.c				\
 	  mlx_print_map.c		\
 	  key_press.c			\
 	  player_mouvements.c	\
+	  put_player.c			\
 	  check_exit.c			\
 
 OBJ = $(SRC:%.c=%.o)

@@ -14,14 +14,16 @@
 
 int	check_file(char **argv, int fd)
 {
+	int	i;
 	int	j;
 
+	i = ft_strlen(argv[1]);
 	j = 0;
 	if (fd == -1)
 		return (2);
-	while (argv[1][j] && argv[1][j] != '.')
-		j++;
-	if (ft_strncmp(".ber", &argv[1][j], 4) != 0 || ft_strlen(&argv[1][j]) > 4)
+	while (i > 0 && argv[1][i] != '.')
+		i--;
+	if (ft_strncmp(".ber", &argv[1][i], 4) != 0 || ft_strlen(&argv[1][i]) > 4)
 		return (1);
 	return (0);
 }
