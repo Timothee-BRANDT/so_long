@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   mlx_print_map.c                                    :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 23:35:32 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/01/21 18:50:07 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/01/25 15:11:33 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	init_struct(t_data *data)
 
 void	print_map(t_data *data)
 {
-	init_struct(data);
 	while(data->map[data->i])
 	{
 		data->j = 0;
@@ -57,7 +56,7 @@ void	put_xpm(char *file, t_data *data)
 	if (!data->img)
 	{
 		printf("Error\nProblem with the images.");
-		//free_split(data->map);
+		free_split(data->map);
 		exit(2);
 	}
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img, data->j * 32, data->i * 32);
@@ -69,7 +68,7 @@ void	put_double_xpm(char *file1, char *file2, t_data *data)
 	if (!data->img)
 	{
 		printf("Error\nProblem with the images.");
-		//free_split(data->map);
+		free_split(data->map);
 		exit(2);
 	}
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img, data->j * 32, data->i * 32);
@@ -77,7 +76,7 @@ void	put_double_xpm(char *file1, char *file2, t_data *data)
 	if (!data->img)
 	{
 		printf("Error\nProblem with the images.");
-		//free_split(data->map);
+		free_split(data->map);
 		exit(2);
 	}
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img, data->j * 32, data->i * 32);

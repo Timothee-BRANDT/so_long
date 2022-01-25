@@ -9,7 +9,9 @@ SRC = main.c				\
 	  parsing/parsing2.c	\
 	  parsing/parsing3.c	\
 	  mlx_print_map.c		\
-	  map_mouvements.c		\
+	  key_press.c			\
+	  player_mouvements.c	\
+	  check_exit.c			\
 
 OBJ = $(SRC:%.c=%.o)
 

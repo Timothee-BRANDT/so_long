@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 17:59:20 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/01/21 18:50:09 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/01/25 14:54:21 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ typedef struct s_data {
 	int		y;
 	int		i;
 	int		j;
+	int		i_player;
+	int		j_player;
+	int		count;
 }			t_data;
 
 char	**make_map(int fd, int *count);
@@ -58,6 +61,17 @@ void	get_map_size(t_data *data);
 void	print_map(t_data *data);
 void	put_xpm(char *file, t_data *data);
 void	put_double_xpm(char *file1, char *file2, t_data *data);
+void	put_player(char *file1, char *file2, t_data *data);
 void	start_event(t_data *data);
+void	free_split(char ** map);
+int		ft_close(int keycode, t_data *data);
+void	init_struct(t_data *data);
+void	get_player_pos(t_data *data);
+void	move_w(t_data *data);
+void	move_a(t_data *data);
+void	move_s(t_data *data);
+void	move_d(t_data *data);
+int		count_collectible(t_data *data);
+int		check_collectible(t_data *data);
 
 #endif

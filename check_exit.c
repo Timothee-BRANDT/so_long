@@ -1,32 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_exit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 17:59:11 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/01/25 15:11:41 by tbrandt          ###   ########.fr       */
+/*   Created: 2022/01/24 22:11:24 by tbrandt           #+#    #+#             */
+/*   Updated: 2022/01/24 23:51:55 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char *argv[])
+int count_collectible(t_data *data)
 {
-	t_data data;
-	if (argc == 2)
+	int	i;
+	int	j;
+	int	collectible;
+
+	collectible = 0;
+	i = 0;
+	while(data->map[i])
 	{
-		if (start_parsing(argv, &data) == 0)
+		j = 0;
+		while(data->map[i][j])
 		{
-			get_map_size(&data);
-			get_player_pos(&data);
-			init_struct(&data);
-			print_map(&data);
-			start_event(&data);
+			if (data->map[i][j] == 'C')
+				collectible++;
+			j++;
 		}
+		i++;
 	}
-	else
-		printf("Error\n");
-	//system("leaks so_long");
+	return (collectible);
+}
+
+int	check_collectible(t_data *data)
+{
+	int	i;
+
+	i = count_collectible(data);
+	printf(" total : %d\n", i);
+	printf("compteur : %d", data->count);
+	
+	if (data->count >= i)
+		return (1);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 15:22:50 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/01/21 17:36:05 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/01/24 14:02:33 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,18 @@ int	check_map2(char **map)
 	if (check_content(map))
 		return(on_error("Error\nMy map only accept 0, 1, P, C and E.\n", 1));
 	return (0);
+}
+
+void	free_split(char ** map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while(map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
 }
