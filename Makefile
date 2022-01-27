@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/01/27 18:32:37 by tbrandt           #+#    #+#              #
+#    Updated: 2022/01/27 18:32:38 by tbrandt          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC	= gcc
 CFLAGS = -Wall -Werror -Wextra -g
 NAME = so_long
@@ -5,9 +17,9 @@ I_DIR = include
 L_FT = libft
 
 SRC = main.c				\
-	  parsing/parsing1.c	\
-	  parsing/parsing2.c	\
-	  parsing/parsing3.c	\
+	  parsing1.c			\
+	  parsing2.c			\
+	  parsing3.c			\
 	  mlx_print_map.c		\
 	  key_press.c			\
 	  player_mouvements.c	\
@@ -19,13 +31,13 @@ OBJ = $(SRC:%.c=%.o)
 all: so_long.h $(NAME)
 
 $(NAME): $(L_FT)/libft.a $(OBJ)
-		$(CC) $(CFLAGS) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(OBJ) -I$(I_DIR) -L$(L_FT) -lft
+		$(CC) $(CFLAGS) -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(OBJ) -I$(I_DIR) -L$(L_FT) -lft
 
 $(L_FT)/libft.a:	
-	make -C $(L_FT) 
+	make -C $(L_FT)
 
 %.o: %.c
-	$(CC) -g -o $@ -c $< -I$(I_DIR)mlx
+	$(CC) -g -o $@ -c $< -I mlx
 
 clean:
 	make clean -C $(L_FT)

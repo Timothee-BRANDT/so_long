@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 17:59:11 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/01/25 23:46:50 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/01/27 18:56:08 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ int	main(int argc, char *argv[])
 {
 	t_data	data;
 
-	if (argc == 2)
+	if (argc != 2)
+		printf("Error\n");
+	else
 	{
 		if (start_parsing(argv, &data) == 0)
 		{
@@ -25,9 +27,6 @@ int	main(int argc, char *argv[])
 			init_struct(&data);
 			print_map(&data);
 			start_event(&data);
-			//system("leaks so_long");
 		}
 	}
-	else
-		printf("Error\n");
 }

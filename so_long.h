@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 17:59:20 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/01/25 23:50:54 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/01/27 18:24:18 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h> // read
 # include <stdio.h> // printf
 # include <stdlib.h> // malloc
-# include "mlx/mlx.h"
+# include "mlx.h"
 # include "Libft/libft.h"
 
 # define KEY_A 0
